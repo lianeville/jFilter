@@ -88,7 +88,7 @@ class jFilter {
 			.append(this.generateDropdownDom(options, optionLabel))
 		$('<a href="#" class="jfilter-type-a" />').text(optionLabel)
 			.attr('data-bs-toggle', 'dropdown')
-			.addClass('nav-link rounded-pill dropdown-toggle btn')
+			.addClass('rounded-pill dropdown-toggle btn')
 			.addClass(optionLabel.toLowerCase())
 			.css('border-color', this.formatHSL(options.colorHSL))
 			.css('background-color', this.formatHSL(options.colorHSL, true))
@@ -175,7 +175,7 @@ class jFilter {
 
 		$(`<span data-value="${option.filterId}">&ZeroWidthSpace;</span>`)
 			.addClass('custom-control-label')
-			.css('border-color', this.formatHSL(colorHSL))
+			.attr('style', this.formatHSL(colorHSL) + ' !important')
 			.css('background-color', this.formatHSL(colorHSL))
 			.addClass(option.inserted ? 'font-italic' : '')
 			.appendTo(optionDom)
@@ -250,7 +250,7 @@ class jFilter {
 		} else {
 			const addedButton = $('<li></li>')
 				.append(`
-					<div class="jfilter-button nav-link rounded-pill bg-primary ml-1" style="background-color: ${this.buttonBgColor}!important; color: ${this.buttonTextColor}">
+					<div class="jfilter-button rounded-pill bg-primary ml-1" style="background-color: ${this.buttonBgColor}!important; color: ${this.buttonTextColor}">
 						<i class="${button.icon}"></i>
 					</div>`)
 				.on('click', button.callback)
@@ -278,6 +278,8 @@ class jFilter {
 			s *= 0.6;
 			l += (100 - l) * 0.75;
 		}
+
+		console.log(`hsl(${h},${s}%,${l}%) !important`)
 
 		return `hsl(${h},${s}%,${l}%)`
 	}

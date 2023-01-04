@@ -1,8 +1,8 @@
+let f;
 $(document).ready(function () {
 
-	let f;
 
-	let  data  = {
+	let data  = {
 		Greetings: {
 			dataSet: [
 				{filterId: 0, filterName: 'Hello there'},
@@ -17,7 +17,7 @@ $(document).ready(function () {
 				{filterId: 'two', filterName: 'Later.'},
 				{filterId: 'three', filterName: 'Have a good one.'}
 			],
-			colorHSL: [50, 100, 52]
+			colorHSL: [174, 100, 36]
 		},
 	}
 
