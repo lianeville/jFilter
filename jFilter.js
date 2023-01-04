@@ -9,6 +9,8 @@ class jFilter {
 		this.bulkClick = false;
 		this.enableTokenField = options.enableTokenField  == false ? false : true;
 		this.enableReset = options.enableReset  == false ? false : true;
+		this.resetText = options.resetText || 'Reset';
+		this.resetClass = options.resetClass || '';
 		this.addedButtons = options.addedButtons;
 		this.buttonBgColor = options.buttonBgColor;
 		this.buttonTextColor = options.buttonTextColor;
@@ -70,7 +72,7 @@ class jFilter {
 	}
 
 	generateTokenField() {
-		const tokenFieldDom = $('<div class="tokenfield form-control input-sm form-control-sm" />');
+		const tokenFieldDom = $('<div class="tokenfield" />');
 		$.each(this.data, (e) => {
 			tokenFieldDom.append(`<div class="tokenfield-${e.toLowerCase()} d-flex">`);
 		})
@@ -85,7 +87,8 @@ class jFilter {
 		const categoryDom = $('<li class="jfilter-type nav-item dropdown" />')
 			.append(this.generateDropdownDom(options, optionLabel))
 		$('<a href="#" class="jfilter-type-a" />').text(optionLabel)
-			.addClass('nav-link rounded-pill dropdown-toggle font-weight-bold')
+			.attr('data-bs-toggle', 'dropdown')
+			.addClass('nav-link rounded-pill dropdown-toggle font-weight-bold btn')
 			.addClass(optionLabel.toLowerCase())
 			.css('border-color', this.formatHSL(options.colorHSL))
 			.css('background-color', this.formatHSL(options.colorHSL, true))
@@ -200,9 +203,10 @@ class jFilter {
 	generateResetButtonDom() {
 		const resetContainer = $('<li class="jfilter-reset ml-auto"/>');
 		$('<div href="#" class="nav-link rounded-pill jfilter-button" />')
+			.text(this.resetText)
 			.css('background-color', this.buttonBgColor || '#2196f3')
 			.css('color', this.buttonTextColor || '#fff')
-			.append('<i class="fas fa-undo" />')
+			.append(`<i class="${this.resetClass}"></i>`)
 			.appendTo(resetContainer)
 			.on('click', () => {
 				this.bulkClick = true;
