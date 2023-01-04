@@ -1,3 +1,7 @@
+.jfilter-type-container {
+	user-select: none;
+}
+
 .jfilter-type-container li .nav-link {
 	padding: .6em 1.25em;
 }
@@ -8,9 +12,10 @@
 
 .jfilter-type > .jfilter-type-a {
 	color: #777;
+	font-weight: bold;
 }
 
-.jfilter-type > .jfilter-type-a:hover {
+.jfilter-type > .jfilter-type-a:hover, .jfilter-type > .jfilter-type-a:focus {
 	color: #333;
 }
 
@@ -86,6 +91,7 @@
 }
 
 .jfilter-reset {
+	font-family: Lucida Sans Unicode;
 	margin-left: auto !important;
 }
 
@@ -98,7 +104,6 @@
 
 .clear-filter-container > button {
 	width: 100%;
-	margin: 0 .5rem 0 .5rem;
 }
 
 .custom-control-label::before, .dropdown-item:not(:hover) > .custom-control-input {
@@ -131,6 +136,14 @@
 	transition: none;
 }
 
+.dropdown-dom-items .dropdown-item:active {
+	color: inherit;
+}
+
+.dropdown-dom-items .dropdown-item > span {
+	margin-left: 5px;
+}
+
 .dropdown-dom-items .custom-control-input:checked~.custom-control-label::before {
 	background-color: inherit;
 }
@@ -141,8 +154,7 @@
 
 .dropdown-dom-items .dropdown-item.custom-control {
 	margin-bottom: 0;
-	padding-top: .75em;
-	padding-bottom: .75em;
+	padding: 10px 16px;
 }
 
 a.nav-link.rounded-pill:not(.filterActive) {

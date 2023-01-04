@@ -88,7 +88,7 @@ class jFilter {
 			.append(this.generateDropdownDom(options, optionLabel))
 		$('<a href="#" class="jfilter-type-a" />').text(optionLabel)
 			.attr('data-bs-toggle', 'dropdown')
-			.addClass('nav-link rounded-pill dropdown-toggle font-weight-bold btn')
+			.addClass('nav-link rounded-pill dropdown-toggle btn')
 			.addClass(optionLabel.toLowerCase())
 			.css('border-color', this.formatHSL(options.colorHSL))
 			.css('background-color', this.formatHSL(options.colorHSL, true))
